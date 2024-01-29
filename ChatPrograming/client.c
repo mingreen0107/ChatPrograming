@@ -18,8 +18,7 @@ void error_handling(char* msg);
 char name[NAME_SIZE];
 char msg[BUF_SIZE];
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]){
     int sock;
     struct sockaddr_in serv_addr;
     pthread_t snd_thread, rcv_thread;
@@ -50,8 +49,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-void* send_msg(void* arg)
-{
+void* send_msg(void* arg){
     int sock = *((int*)arg);
     char name_msg[NAME_SIZE + BUF_SIZE];
     while (1)
@@ -68,11 +66,11 @@ void* send_msg(void* arg)
     return NULL;
 }
 
-void* recv_msg(void* arg)
-{
+void* recv_msg(void* arg){
     int sock = *((int*)arg);
     char name_msg[NAME_SIZE + BUF_SIZE];
     int str_len;
+
     while (1)
     {
         str_len = read(sock, name_msg, NAME_SIZE + BUF_SIZE - 1);
@@ -84,10 +82,10 @@ void* recv_msg(void* arg)
     return NULL;
 }
 
-void error_handling(char* msg)
-{
+void error_handling(char* msg){
     fputs(msg, stderr);
     fputc('\n', stderr);
+
     exit(1);
 }
 
