@@ -13,7 +13,6 @@
 void* handle_clnt(void* arg);
 void send_msg(char* msg, int len);
 void error_handling(char* msg);
-
 int clnt_cnt = 0;        
 int clnt_socks[MAX_CLNT];
 
